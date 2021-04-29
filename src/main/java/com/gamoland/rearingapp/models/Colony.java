@@ -11,7 +11,7 @@ public class Colony {
     private Long id;
     private LocalDateTime startedAt;
     private LocalDateTime feedAt;
-    @ManyToMany(cascade = CascadeType.PERSIST, mappedBy = "colony", fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.PERSIST, mappedBy = "colonies", fetch = FetchType.EAGER)
     private List<Owner> owners;
 
     public Colony() {
