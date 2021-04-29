@@ -8,12 +8,15 @@ public class Owner {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String emailAddress;
-    @ManyToMany
+    private String name;
+    private String email;
+    private String username;
+    private String password;
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private List<Colony> colonies;
 
-    public Owner(String emailAddress, List<Colony> colonies) {
-        this.emailAddress = emailAddress;
+    public Owner(String email, List<Colony> colonies) {
+        this.email = email;
         this.colonies = colonies;
     }
 
@@ -28,12 +31,12 @@ public class Owner {
         this.id = id;
     }
 
-    public String getEmailAddress() {
-        return emailAddress;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
+    public void setEmail(String emailAddress) {
+        this.email = emailAddress;
     }
 
     public List<Colony> getColonies() {
@@ -46,5 +49,29 @@ public class Owner {
 
     public void addColony(Colony colony){
         colonies.add(colony);
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
